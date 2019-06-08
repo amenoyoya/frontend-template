@@ -1,0 +1,17 @@
+{# HTML5基本テンプレートを継承 #}
+{% extends "element/html5.html" %}
+{% block title %}入門｜フロントエンド開発{% endblock %}
+
+{# headブロックを拡張 #}
+{% block head %}
+    {{ super() }}
+    <style>
+        .important { color: #f69; }
+    </style>
+{% endblock %}
+
+{# bodyブロックを定義 #}
+{% block body %}
+    <h1>入門｜フロントエンド開発</h1>
+    <p>これは<span class="important">フロントエンド</span>開発の入門です</p>
+{% endblock %}
