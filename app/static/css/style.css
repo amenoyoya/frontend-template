@@ -1,0 +1,15 @@
+@charset "UTF-8"
+
+/* 基本色 */
+:root {
+    --main-color: #5d9ab2;
+    --accent-color: #bf6a7a;
+    --dark-main-color: #2b5566;
+    --text-bright-color: #fff;
+}
+
+/* 基本設定 */
+body {
+    margin: 0;
+    font-family: 'メイリオ', 'Hiragino Kaku Gothic Pro', sans-serif;
+}

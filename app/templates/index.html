@@ -1,29 +1,22 @@
 {#- HTML5基本テンプレートを継承 #}
 {%- extends "element/html5.html" %}
-{%- import 'css/content.css' as content %}
 {%- block title %}入門｜フロントエンド開発{% endblock %}
 
 {#- headブロックを拡張 #}
 {%- block head %}
     {{ super() }}
-    <link rel="stylesheet" href="/static/css/base.css">
-    <link rel="stylesheet" href="/static/css/columns.css">
-    <style>    
-        .important { color: #f69; }
-    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="/static/css/style.css">
 {%- endblock %}
 
 {#- bodyブロックを定義 #}
 {%- block body %}
-    <section class="container">
-        <div class="columns">
-            <div class="column is-two-fifth">
-                <p>サイドバー</p>
-            </div>
-            <div class="column">
-                <h1>入門｜フロントエンド開発</h1>
-                <p>これは<span class="important">フロントエンド</span>開発の入門です</p>
-            </div>
+    <section class="content-a">
+        <div class="container">
+            <!--img src="/static/img/logo.svg" alt="logo"-->
+            <h1>入門｜フロントエンド開発</h1>
+            <p>美味しく楽しくフロントエンド開発</p>
+            <a href="#">開発ログを始める</a>
         </div>
     </section>
 {%- endblock %}
