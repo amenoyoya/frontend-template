@@ -1,15 +1,17 @@
-{# HTML5の基本テンプレート #}
+{#- HTML5の基本テンプレート #}
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        {% block head %}
+        {%- block head %}
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        {#- スタイルリセットCSS #}
+        <link rel="stylesheet" href="/static/css/minireset.css">
         <title>{% block title %}{% endblock %}</title>
-        {% endblock %}
+        {%- endblock %}
     </head>
     <body>
-        {% block body %}
-        {% endblock %}
+        {%- block body %}
+        {%- endblock %}
     </body>
 </html>

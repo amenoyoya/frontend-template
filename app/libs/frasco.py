@@ -1,6 +1,10 @@
 # encoding: utf-8
 '''
 Flask Webserver Wrapper
+
+Copyright (C) 2019 yoya@amenoyoya. All rights reserved.
+GitHub: https://github.com/amenoyoya/frontend-template
+License: MIT License
 '''
 import flask, os
 from flask import Flask, render_template, jsonify, session, request
@@ -16,14 +20,14 @@ class Response:
     @staticmethod
     def html(filename, status=200):
         ''' render html file '''
-        with open(filename + '.html', 'rb') as f:
+        with open(filename, 'rb') as f:
             return f.read(), status
     
     @staticmethod
     def template(filename, kwargs={}, status=200):
         ''' render template html file '''
         # template file should be in 'templates/'
-        return render_template(filename + '.html', **kwargs), status
+        return render_template(filename, **kwargs), status
 
     @staticmethod
     def json(data, status=200):

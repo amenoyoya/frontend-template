@@ -7,7 +7,7 @@ app = Frasco(__name__)
 # top page
 @app.get('/')
 def index():
-    return Response.template('index')
+    return Response.template('index.html')
 
 if __name__ == "__main__":
     # run server in debug mode on port 3000
