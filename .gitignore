@@ -1,6 +1,1 @@
-/flask/Dockerfile
-/flask/uwsgi.ini
-/nginx/nginx.conf
-/docker-compose.yml
-
-__pycache__/
+node_modules/

@@ -1,40 +1,121 @@
-# 入門｜フロントエンド開発
+# 入門｜Atomic Design
 
 ## Environment
 
-- Frameworks:
-    - Web: `python3 + flask`
-- Docker: `18.09.6`
-    - docker-ccompose: `1.24.0`
-    - Containers:
-        - flask:
-            - FROM: `alpine:3.7`
-            - DEV: flaskの開発用サーバーを実行
-            - PRD: flaskサーバーをuwsgiプロトコルで実行
-        - nginx:
-            - FROM: `nginx`
-            - DEV: 使用されない
-            - PRD: nginxサーバー <=> uwsgi <=> flaskサーバー
+- OS: Ubuntu 18.04
+- CLI:
+    - nodejs: `10.15.3`
+        - n (バージョン管理ツール): `4.1.0`
+        - yarn (パッケージマネージャ): `1.16.0`
+- Framework:
+    - React: `3.0.1`
+    - Storybook: `5.1.9`
 
 ***
 
-## Usage
+## Setup (1H)
 
+### Install CLI Tools
 ```bash
-# development server: localhost:3000
-$ python bootstrap.py
+# install nodejs
+$ sudo apt install -y nodejs npm
+$ sudo npm install -g n # Install n-install on global
+$ sudo n stable # Install stable nodejs by using n-install
+$ sudo apt purge -y nodejs npm # Remove old nodejs and npm
+$ sudo apt autoremove -y
 
-# product server: localhost <=> flask server: localhost:3000
-$ python bootstrap.py -o
+# install yarn on global
+$ sudo bpm install -g yarn
+
+# show versions
+$ n --version
+4.1.0
+
+$ nodejs -v
+10.15.3
+
+$ yarn -v
+1.16.0
 ```
 
-### Command line options
+### Create React Project
+React
+: ユーザインターフェースをコポーネンとベースで構築するための JavaScript ライブラリ
 
-short option | long option      | 引数       | 説明
-:--:         | :--              | :--        | :--
-`-o`         | `--product`      |            | 本番用Dockerとして実行
-`-s`         | `--sudo`         |            | docker-composeをsudo権限で実行
-`-b`         | `--build`        |            | docker-composeを`--build`オプション付きで実行
-`-u`         | `--flask_port`   | ポート番号 | flaskサーバーの実行ポートを指定（default=`3000`）
-`-p`         | `--port`         | ポート番号 | 本番サーバー(nginx)の実行ポートを指定（default=`80`）
-`-v`         | `--virtual_host` | ホスト名   | 仮想ホスト名を指定（default=`local-host.jp`）
+```bash
+# install create-react-app on local
+$ yarn add -D create-react-app
+
+# create react project into `app` directory
+$ yarn create-react-app app
+```
+
+### Install Storybook
+Storybook
+: UIコンポーネントのカタログ
+再利用可能なコンポーネントを効率よく構築可能
+
+```bash
+# set current directory to `app`
+$ cd app
+
+# install storybook for react
+$ yarn add -D @storybook/react
+
+# install react, react-dom, @babel/core, and babel-loader
+$ yarn add -D react react-dom
+$ yarn add -D babel-loader @babel/core
+```
+
+***
+
+## Configures (0.5H)
+
+`app/package.json`にStorybook実行用のscriptを追加する
+
+```json
+{
+    "scripts": {
+        "storybook": "start-storybook"
+    }
+}
+```
+
+`app/.storybook/config.js`に設定を書き込む
+
+```javascript
+import { configure } from '@storybook/react';
+
+function loadStories() {
+    // コンポーネントカタログを`app/stories/index.js`に定義
+    require('../stories/index.js');
+}
+
+configure(loadStories, module);
+```
+
+***
+
+## Sample Components (0.5H)
+
+`app/stories/index.js`にUIコンポーネントを書いていく
+
+以下は、テキスト付きのボタンコンポーネントの例
+
+```javascript
+import React from 'react';
+import { storiesOf } from '@storybook/react';
+import { Button } from '@storybook/react/demo';
+
+storiesOf('Button', module)
+    .add('with text', () => (
+        <Button>Hello Button</Button>
+    ));
+```
+
+コンポーネントを作成したら、`package.json`に定義しておいた`storybook`スクリプトを実行する
+
+```bash
+$ yarn storybook
+# => Storybookが http://localhost:XXXX で実行され、ブラウザで開かれる
+```
