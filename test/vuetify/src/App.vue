@@ -1,5 +1,5 @@
 <template>
     <div>
-        <p>Hello, World!</p>
+        <v-alert :value="true" type="success">Hello, World!</v-alert>
     </div>
 </template>

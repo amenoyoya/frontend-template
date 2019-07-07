@@ -38,6 +38,12 @@ $ yarn add -D vue vue-loader vue-template-compiler css-loader style-loader babel
 
 # install vuetify
 $ yarn add -D vuetify
+
+# install material-design-icons
+$ yarn add -D material-design-icons
+
+# install polyfill for IE11/Safari9
+$ yarn add -D babel-polyfill
 ```
 
 - **webpack.config.js**

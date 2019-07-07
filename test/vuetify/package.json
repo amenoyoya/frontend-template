@@ -1,6 +1,6 @@
 {
     "scripts": {
-        "start": "webpack-dev-server --hot"
+        "start": "webpack-dev-server --hot --inline"
     },
     "devDependencies": {
         "@babel/core": "^7.5.0",
@@ -15,5 +15,8 @@
         "webpack": "^4.35.2",
         "webpack-cli": "^3.3.5",
         "webpack-dev-server": "^3.7.2"
+    },
+    "dependencies": {
+        "babel-polyfill": "^6.26.0"
     }
 }

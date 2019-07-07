@@ -1,8 +1,12 @@
 import Vue from 'vue';
 import App from './App'
+import Vuetify from 'vuetify';
+import 'vuetify/dist/vuetify.min.css'; // vuetifyのスタイルシート
+import 'babel-polyfill'; // IE11/Safari9用のpolyfill
+ 
+Vue.use(Vuetify);
 
 new Vue({
-  el: '#app', // Vueでマウントする要素
-  components: { App }, // 使用するコンポーネント
-  template: '<app/>', // el（#app）の中に表示する内容
+  el: "#app",
+  render: h => h(App)
 });

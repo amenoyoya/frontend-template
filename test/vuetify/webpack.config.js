@@ -42,11 +42,11 @@ module.exports = {
         use: "vue-loader"
       },
       {
-        // .css ファイル: css-loader => vue-style-loader の順に適用
+        // .css ファイル: css-loader => style-loader の順に適用
         // - css-loader: cssをJSにトランスコンパイル
-        // - vue-style-loader: <link>タグにスタイル展開
+        // - style-loader: <link>タグにスタイル展開
         test: /\.css$/,
-        use: ['vue-style-loader', 'css-loader']
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
