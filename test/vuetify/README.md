@@ -28,22 +28,13 @@ Vuetifyにより、とりあえずそれっぽい見た目のアプリが開発�
 ### Install
 webpack + vue の構成とする
 
-#### Install Webpack + Vue + Vuetify
+#### Install Webpack + Vue
 ```bash
 # install webpack
 $ yarn add -D webpack webpack-cli webpack-dev-server
 
 # install vue + loader
 $ yarn add -D vue vue-loader vue-template-compiler css-loader style-loader babel-loader @babel/core @babel/preset-env
-
-# install vuetify
-$ yarn add -D vuetify
-
-# install material-design-icons
-$ yarn add -D material-design-icons
-
-# install polyfill for IE11/Safari9
-$ yarn add -D babel-polyfill
 ```
 
 - **webpack.config.js**
@@ -94,9 +85,9 @@ $ yarn add -D babel-polyfill
           {
             // .css ファイル: css-loader => vue-style-loader の順に適用
             // - css-loader: cssをJSにトランスコンパイル
-            // - vue-style-loader: <link>タグにスタイル展開
+            // - style-loader: <link>タグにスタイル展開
             test: /\.css$/,
-            use: ['vue-style-loader', 'css-loader']
+            use: ['style-loader', 'css-loader']
           }
         ]
       },
@@ -166,8 +157,97 @@ $ yarn add -D babel-polyfill
         </body>
     </html>
     ```
-- Test run:
+- Test run
     ```bash
     $ yarn start
     # => "Hello, World!" in http://localhost:3000
     ```
+
+#### Install Vuetify
+```bash
+# install vuetify
+$ yarn add -D vuetify
+
+# install material-design-icons-iconfront
+$ yarn add -D material-design-icons-iconfont
+
+# install url-loader
+$ yarn add -D url-loader
+
+# install polyfill for IE11/Safari9
+$ yarn add -D babel-polyfill
+```
+
+- **webpack.config.js** (svg等のアイコンのloader設定を追加)
+    ```diff
+    module.exports = {
+      // ～略～
+      module: {
+        rules: [
+    +     /* アイコンloader設定 */
+    +     {
+    +       test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+    +       use: [{
+    +         loader: 'url-loader?mimetype=image/svg+xml'
+    +       }],
+    +     },
+    +     {
+    +       test: /\.woff(\d+)?(\?v=\d+\.\d+\.\d+)?$/,
+    +       use: [{
+    +         loader: 'url-loader?mimetype=application/font-woff'
+    +       }],
+    +     },
+    +     {
+    +       test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+    +       use: [{
+    +         loader: 'url-loader?mimetype=application/font-woff'
+    +       }],
+    +     },
+    +     {
+    +       test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+    +       use: [{
+    +         loader: 'url-loader?mimetype=application/font-woff'
+    +       }],
+    +     },
+        ]
+      }
+    }
+    ```
+
+#### Test run: Vuetify
+- **src/App.vue** (※ **v-appタグで囲むのを忘れないように！**)
+    ```html
+    <template>
+        <!-- Vuetifyコンポーネントを使う場合は v-appタグで囲むこと！ -->
+        <v-app>
+            <!-- Alertコンポーネントを使ってみる -->
+            <v-alert :value="true" type="success">Hello, World!</v-alert>
+        </v-app>
+    </template>
+    ```
+- **src/index.js**
+    ```javascript
+    import Vue from 'vue';
+    import App from './App'
+    import Vuetify from 'vuetify';
+    // vuetifyのスタイルシートload
+    import 'vuetify/dist/vuetify.min.css';
+    // material-design-iconsをload
+    import 'material-design-icons-iconfont/dist/material-design-icons.css';
+    // IE11/Safari9用のpolyfill
+    import 'babel-polyfill';
+    
+    Vue.use(Vuetify); // Vuetifyのコンポーネントを使用可能に
+    
+    new Vue({
+      el: "#app",
+      render: h => h(App)
+    });
+    ```
+- Test run
+    ```bash
+    $ yarn start
+    # => "Hello, World!" in http://localhost:3000
+    ```
+
+![thumbnail-vuetify](./thumbnail-vuetify.png)
