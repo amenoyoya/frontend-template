@@ -13,3 +13,19 @@
 - [Elm公式ガイド](https://guide.elm-lang.jp/)
 - [Elmはどんな人にオススメできないか](https://qiita.com/arowM/items/dfb38d1c5f3dfde8b8bf)
 - [ElmとPureScript、どっちを選べばいいんだよ](https://qiita.com/hiruberuto/items/c65e7629d3b1597840d9)
+
+***
+
+## Setup
+
+### Environment
+- CLI:
+    - nodejs: `10.15.3`
+    - yarn (package manager): `1.15.2`
+
+---
+
+### Installation
+```bash
+$ yarn add -D elm
+```
