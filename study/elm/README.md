@@ -81,3 +81,32 @@ Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
     # Access to http://localhost:8000/test.elm
     ## => Display: "Hello, world!"
     ```
+
+***
+
+## 言語の基礎
+
+以下は、REPLモードで動作確認すると良い
+
+### 値
+```elm
+-- 文字列: " " で囲む
+> "hello"
+"heelo" : String
+
+-- 文字列の連結は ++ 演算子
+> "hello" ++ " " ++ "world"
+"hello world" : String
+
+-- 数値の四則演算は一般的なものと変わらない
+> 1 + 2 * 3
+7 : number
+
+-- 浮動小数点の除算: /
+-- 整数の除算: //
+> 9 / 2
+4.5 : Float
+
+> 9 // 2
+4 : Int
+```
