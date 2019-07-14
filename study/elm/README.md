@@ -82,31 +82,73 @@ Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
     ## => Display: "Hello, world!"
     ```
 
-***
+---
 
-## 言語の基礎
+### 言語の基礎
 
 以下は、REPLモードで動作確認すると良い
 
-### 値
+#### 値
 ```elm
 -- 文字列: " " で囲む
-> "hello"
-"heelo" : String
+"hello"
+--> "heelo" : String
 
 -- 文字列の連結は ++ 演算子
-> "hello" ++ " " ++ "world"
-"hello world" : String
+"hello" ++ " " ++ "world"
+--> "hello world" : String
 
 -- 数値の四則演算は一般的なものと変わらない
-> 1 + 2 * 3
-7 : number
+1 + 2 * 3
+--> 7 : number
 
 -- 浮動小数点の除算: /
 -- 整数の除算: //
-> 9 / 2
-4.5 : Float
+9 / 2
+--> 4.5 : Float
 
-> 9 // 2
-4 : Int
+9 // 2
+--> 4 : Int
+```
+
+#### 関数
+関数定義は以下のような式で行う
+
+```
+<関数名> (引数)* = <式>
+
+=> '<function>' : (<引数1型名> -> <引数2型名> -> ...) -> <戻り値型名>
+```
+
+```elm
+-- 引数に渡した数値が負かどうか判定
+isNegative n = n < 0
+--> <function> : number -> Bool
+
+-- 引数に渡した数値2つを加算
+add x y = x + y
+--> <function> : number -> number -> number
+
+isNegative 0
+--> False : Bool
+
+add 1 2
+--> 3 : number
+
+isNegative (add 3 -4)
+-- True : Bool
+```
+
+以下の式で無名関数を定義することもできる
+
+```
+'\' (引数)* -> <式>
+
+=> '<function>' : (<引数1型名> -> <引数2型名> -> ...) -> <戻り値型名>
+```
+
+```elm
+-- 無名関数を使って加算を行う
+(\ x y -> x + y) 100 23
+--> 123 : number
 ```
