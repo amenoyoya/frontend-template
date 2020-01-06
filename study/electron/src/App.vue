@@ -15,7 +15,7 @@
       <div slot-scope="{data, store, vm}" class="list-item">
         <template v-if="!data.isDragPlaceHolder">
           <b v-if="data.children && data.children.length" @click="store.toggleOpen(data)">
-            {{data.open ? '-' : '+'}}&nbsp;
+            <i :class="'far ' + (data.open ? 'fa-window-close' : 'fa-plus-square')"></i>&nbsp;
           </b>
         </template>
         <span>{{data.emoji}} {{data.name}}</span>
