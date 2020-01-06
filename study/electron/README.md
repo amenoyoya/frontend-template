@@ -106,19 +106,7 @@ module.exports = {
         }],
       },
       {
-        test: /\.woff(\d+)?(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'url-loader?mimetype=application/font-woff'
-        }],
-      },
-      {
-        test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'url-loader?mimetype=application/font-woff'
-        }],
-      },
-      {
-        test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.(ttf|eot|woff|woff2)(\d+)?(\?v=\d+\.\d+\.\d+)?$/,
         use: [{
           loader: 'url-loader?mimetype=application/font-woff'
         }],
