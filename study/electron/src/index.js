@@ -8,8 +8,11 @@ import 'babel-polyfill'
 // Buefy: Vue + Bulma
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
-
 Vue.use(Buefy)
+
+// VueDraggable
+import VueDraggable from 'vuedraggable';
+Vue.component('draggable', VueDraggable);
 
 new Vue({
   el: '#app', // Vueでマウントする要素
