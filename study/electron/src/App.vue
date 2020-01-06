@@ -11,14 +11,18 @@
     </b-collapse>
 
     <!-- Draggable -->
-    <tree :data="animals" draggable="draggable" crossTree="crossTree">
-      <div slot-scope="{data, store, vm}" class="list-item">
+    <tree :data="animals" draggable="draggable" crossTree="crossTree" class="tree">
+      <div slot-scope="{data, store, vm}" :class="data.draggable? 'draggable': ''">
         <template v-if="!data.isDragPlaceHolder">
           <b v-if="data.children && data.children.length" @click="store.toggleOpen(data)">
-            <i :class="'far ' + (data.open ? 'fa-window-close' : 'fa-plus-square')"></i>&nbsp;
+            <a><i :class="'far ' + (data.open ? 'fa-minus-square' : 'fa-plus-square')"></i>&nbsp;</a>
           </b>
         </template>
-        <span>{{data.emoji}} {{data.name}}</span>
+        <span>
+          <i v-if="data.droppable" class="fas fa-folder"></i>
+          <i v-else class="fas fa-file"></i>
+          {{data.emoji}} {{data.name}}
+        </span>
       </div>
     </tree>
   </section>
@@ -26,14 +30,16 @@
 
 <script>
 const animals = [
-  { emoji: '🐄', name: 'うし' },
-  { emoji: '🐕', name: 'いぬ' },
-  { emoji: '🐈', name: 'ねこ' },
-  { emoji: '🐓', name: 'にわとり', children: [
-    { emoji: '🐤', name: 'ひよこ兄' },
-    { emoji: '🐤', name: 'ひよこ弟' },
-  ]},
-  { emoji:'🐖', name: 'ぶた' }
+  { name: '/', draggable: false, droppable: true, children: [
+    { emoji: '🐄', name: 'うし', draggable: true, droppable: false },
+    { emoji: '🐕', name: 'いぬ', draggable: true, droppable: false },
+    { emoji: '🐈', name: 'ねこ', draggable: true, droppable: false },
+    { emoji: '🐓', name: 'にわとり', draggable: true, droppable: true, children: [
+      { emoji: '🐤', name: 'ひよこ兄', draggable: true, droppable: false },
+      { emoji: '🐤', name: 'ひよこ弟', draggable: true, droppable: false },
+    ]},
+    { emoji:'🐖', name: 'ぶた', draggable: true, droppable: false }
+  ]}
 ]
 
 export default {
@@ -44,3 +50,12 @@ export default {
   },
 }
 </script>
+
+<style scope>
+.draggable {
+  cursor: move;
+}
+.tree {
+  display: inline-block;
+}
+</style>

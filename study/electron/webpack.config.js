@@ -34,7 +34,7 @@ module.exports = {
         // vue-loaderを使って .vue ファイルをコンパイル
         use: [
           {
-            loader: "vue-loader",
+            loader: 'vue-loader',
           },
         ],
       },
