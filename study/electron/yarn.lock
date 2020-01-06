@@ -617,6 +617,13 @@
     js-levenshtein "^1.1.3"
     semver "^5.5.0"
 
+"@babel/runtime@^7.7.7":
+  version "7.7.7"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.7.tgz#194769ca8d6d7790ec23605af9ee3e42a0aa79cf"
+  integrity sha512-uCnC2JEVAu8AKB5do1WRIsvrdJ0flYx/A/9f/6chdacnEZ7LmavjdsDXr5ksYBegxtuTPR5Va9/+13QF/kFkCA==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.7.4":
   version "7.7.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.7.4.tgz#428a7d9eecffe27deac0a98e23bf8e3675d2a77b"
@@ -1626,6 +1633,21 @@ domain-browser@^1.1.1:
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
   integrity sha512-jnjyiM6eRyZl2H+W8Q/zLMA481hzi0eszAaBUzIVnmYVDBbnLxVNnfu1HgEBvCbL+71FrxMl3E6lpKH7Ge3OXA==
 
+drag-event-service@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/drag-event-service/-/drag-event-service-0.0.6.tgz#9c3eba46e8be66d3652fc0301a51821e5fb43deb"
+  integrity sha512-ScjnHbcMvO0abUKRc5JJKa5eqWUJ+eGaoti8RRnAG++NK3oCIMfSpLs0smcugf/DBNbD9QornGmwFIvcugHEzw==
+  dependencies:
+    helper-js "^1.2.0"
+
+draggable-helper@1.0.20:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/draggable-helper/-/draggable-helper-1.0.20.tgz#ada182935b9c38d323f1da962089ce65935286fd"
+  integrity sha512-/ym423hF2cIAIjhPj0SvDClg9aWvhWXxy0eABaXRo3Ofx2IQrsJdwb53geiyLxBQR63owjEHSVeLhjP/DQTq8A==
+  dependencies:
+    drag-event-service "0.0.6"
+    helper-js "^1.3.7"
+
 duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz#ee01dd1cac0ed3cbc7fdbea37dc0a8f1ce002ce2"
@@ -2176,6 +2198,13 @@ he@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
+
+helper-js@^1.2.0, helper-js@^1.3.7, helper-js@^1.4.14:
+  version "1.4.26"
+  resolved "https://registry.yarnpkg.com/helper-js/-/helper-js-1.4.26.tgz#0554e765e32454f2c07d5c16a38b6dc77d7aeee7"
+  integrity sha512-SZr4FxrgLhS2SpVOHmxTADXAFsm1PRvB5mRInoS7FSZSPkU7YQzqU0wIuKTCmWG52w09LhGmyzYXwv62aFFVGA==
+  dependencies:
+    "@babel/runtime" "^7.7.7"
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -3326,6 +3355,11 @@ regenerator-runtime@^0.11.0:
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
   integrity sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
 
+regenerator-runtime@^0.13.2:
+  version "0.13.3"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.3.tgz#7cf6a77d8f5c6f60eb73c5fc1955b2ceb01e6bf5"
+  integrity sha512-naKIZz2GQ8JWh///G7L3X6LaQUAMp2lvb1rvwwsURe/VXwD6VMfr+/1NuNw3ag8v2kY1aQ/go5SNn79O9JU7yw==
+
 regenerator-transform@^0.14.0:
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/regenerator-transform/-/regenerator-transform-0.14.1.tgz#3b2fce4e1ab7732c08f665dfdb314749c7ddd2fb"
@@ -3616,11 +3650,6 @@ snapdragon@^0.8.1:
     source-map-resolve "^0.5.0"
     use "^3.1.0"
 
-sortablejs@^1.10.1:
-  version "1.10.2"
-  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.10.2.tgz#6e40364d913f98b85a14f6678f92b5c1221f5290"
-  integrity sha512-YkPGufevysvfwn5rfdlGyrGjt7/CRHwvRPogD/lC+TnvcN29jDpCifKP+rBqf+LRldfXSTh+0CGLcSg0VIxq3A==
-
 source-list-map@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/source-list-map/-/source-list-map-2.0.1.tgz#3993bd873bfc48479cca9ea3a547835c7c154b34"
@@ -3867,6 +3896,11 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     regex-not "^1.0.2"
     safe-regex "^1.1.0"
 
+tree-helper@^1.0.5:
+  version "1.4.14"
+  resolved "https://registry.yarnpkg.com/tree-helper/-/tree-helper-1.4.14.tgz#522505d53860232558fb8508451c39d6033f24ef"
+  integrity sha512-3OC6Nf1pH8yJNLtJv4nFPTmFz8ZBPWWXWbwGgySpwhb9D9xS6Ats99PdGtqxls9IJ0LHuqmxqb8xGnV7htGjqg==
+
 truncate-utf8-bytes@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/truncate-utf8-bytes/-/truncate-utf8-bytes-1.0.2.tgz#405923909592d56f78a5818434b0b78489ca5f2b"
@@ -4035,6 +4069,24 @@ vm-browserify@^1.0.1:
   resolved "https://registry.yarnpkg.com/vm-browserify/-/vm-browserify-1.1.2.tgz#78641c488b8e6ca91a75f511e7a3b32a86e5dda0"
   integrity sha512-2ham8XPWTONajOR0ohOKOHXkm3+gaBmGut3SRuu75xLd/RRaY6vqgh8NBYYk7+RW3u5AtzPQZG8F10LHkl0lAQ==
 
+vue-draggable-nested-tree@^2.2.18:
+  version "2.2.18"
+  resolved "https://registry.yarnpkg.com/vue-draggable-nested-tree/-/vue-draggable-nested-tree-2.2.18.tgz#dcb765efbecd66bb65f4c43e69dcec1f97ac86fb"
+  integrity sha512-8hFfCO/8AI9g640qIYLp2EElgtnGph7G7ip+nhO+bj4qpL343PqaFYmJaJq2pBMZtXDOG2SG3iPSuUMgv0fRiw==
+  dependencies:
+    draggable-helper "1.0.20"
+    helper-js "^1.3.7"
+    tree-helper "^1.0.5"
+    vue "^2.5.21"
+    vue-functions "^1.0.3"
+
+vue-functions@^1.0.3:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/vue-functions/-/vue-functions-1.0.6.tgz#2f86a7d64fc927d887b7155e932f7d17c0d29a07"
+  integrity sha512-iS66WBDJO1qGiSTLF0iWY61DKlk7K1JmBgFxBRtQLwrnZZFUtWMj6CZWVvI/3kx+7s88ygNJIcRT1tNybUG3NQ==
+  dependencies:
+    helper-js "^1.4.14"
+
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
@@ -4072,17 +4124,10 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
-vue@^2.6.11:
+vue@^2.5.21, vue@^2.6.11:
   version "2.6.11"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.11.tgz#76594d877d4b12234406e84e35275c6d514125c5"
   integrity sha512-VfPwgcGABbGAue9+sfrD4PuwFar7gPb1yl1UK1MwXoQPAw0BKSqWfoYCT/ThFrdEVWoI51dBuyCoiNU9bZDZxQ==
-
-vuedraggable@^2.23.2:
-  version "2.23.2"
-  resolved "https://registry.yarnpkg.com/vuedraggable/-/vuedraggable-2.23.2.tgz#0d95d7fdf4f02f56755a26b3c9dca5c7ca9cfa72"
-  integrity sha512-PgHCjUpxEAEZJq36ys49HfQmXglattf/7ofOzUrW2/rRdG7tu6fK84ir14t1jYv4kdXewTEa2ieKEAhhEMdwkQ==
-  dependencies:
-    sortablejs "^1.10.1"
 
 watchpack@^1.6.0:
   version "1.6.0"

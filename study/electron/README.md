@@ -24,8 +24,8 @@ $ yarn add  electron webpack webpack-cli \
 # install buefy
 $ yarn add buefy
 
-# install VueDraggable
-$ yarn add vuedraggable
+# install VueDraggableNestedTree
+$ yarn add vue-draggable-nested-tree
 ```
 
 ***

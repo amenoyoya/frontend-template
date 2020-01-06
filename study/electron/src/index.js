@@ -10,9 +10,9 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 Vue.use(Buefy)
 
-// VueDraggable
-import VueDraggable from 'vuedraggable';
-Vue.component('draggable', VueDraggable);
+// DraggableTree
+import {DraggableTree} from 'vue-draggable-nested-tree';
+Vue.component('tree', DraggableTree);
 
 new Vue({
   el: '#app', // Vueでマウントする要素
