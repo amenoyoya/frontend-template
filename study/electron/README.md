@@ -26,6 +26,9 @@ $ yarn add buefy
 
 # install VueDraggableNestedTree
 $ yarn add vue-draggable-nested-tree
+
+# install Quill editor
+$ yarn add vue-quill-editor
 ```
 
 ***

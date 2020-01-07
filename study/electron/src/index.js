@@ -14,6 +14,13 @@ Vue.use(Buefy)
 import {DraggableTree} from 'vue-draggable-nested-tree';
 Vue.component('tree', DraggableTree);
 
+// QuillEditor
+import VueQuillEditor from 'vue-quill-editor'
+import 'quill/dist/quill.core.css'
+import 'quill/dist/quill.snow.css'
+import 'quill/dist/quill.bubble.css'
+Vue.use(VueQuillEditor, { theme: 'snow' })
+
 new Vue({
   el: '#app', // Vueでマウントする要素
   render: h => h(App), // App.vue をレンダリング

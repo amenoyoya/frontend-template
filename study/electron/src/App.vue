@@ -25,6 +25,12 @@
         </span>
       </div>
     </tree>
+
+    <!-- QuillEditor -->
+    <quill-editor
+      v-model="content"
+      v-quill:myQuillEditor="editorOption">
+    </quill-editor>
   </section>
 </template>
 
@@ -45,7 +51,11 @@ const animals = [
 export default {
   data() {
     return {
-      animals: animals
+      animals: animals,
+      content: '<p>Example Content</p>',
+      editorOption: {
+        theme: 'snow'
+      }
     }
   },
 }
