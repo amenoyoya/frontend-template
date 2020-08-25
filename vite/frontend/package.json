@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "dev": "vite",
+    "build": "cross-env NODE_ENV=production vite build"
+  },
+  "devDependencies": {
+    "tailwindcss": "^1.7.3",
+    "vue": "next",
+    "vue-router": "^4.0.0-beta.7",
+    "@vue/compiler-sfc": "^3.0.0-rc.7",
+    "cross-env": "^7.0.2",
+    "vite": "^1.0.0-rc.4"
+  }
+}
