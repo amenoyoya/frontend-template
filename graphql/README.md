@@ -102,3 +102,25 @@ $ node server.js
 ```
 
 ![apollo.png](./img/apollo.png)
+
+#### Launch Query
+GraphQLのクエリを渡すと、それに対応したレスポンスが返ってくる
+
+例として、以下のようなクエリを渡すと本のタイトルのみ取得することができる
+
+```
+query {
+  books {
+    title
+  }
+}
+```
+
+上記クエリを JSON データの `query` に文字列として POST すると cURL を使ってもクエリを実行できる
+
+```bash
+$ curl -X POST -H 'Content-Type: application/json' -d '{"query": "query { books { title }}"}' http://localhost:4000
+
+# => JSONデータが返る
+# {"data":{"books":[{"title":"Harry Potter and the Chamber of Secrets"},{"title":"Jurassic Park"}]}}
+```
