@@ -116,6 +116,8 @@ query {
 }
 ```
 
+![apollo_query.png](./img/apollo_query.png)
+
 上記クエリを JSON データの `query` に文字列として POST すると cURL を使ってもクエリを実行できる
 
 ```bash
