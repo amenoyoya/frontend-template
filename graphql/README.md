@@ -29,8 +29,8 @@ GraphQLはAPIを定義するためのクエリ言語・仕様
 
 ### Setup
 ```bash
-# install apollo-server, graphql
-# $ yarn add apollo-server graphql
+# install apollo-server, graphql-tag
+# $ yarn add apollo-server graphql-tag
 
 # install node_packages from package.json
 $ yarn
@@ -126,3 +126,68 @@ $ curl -X POST -H 'Content-Type: application/json' -d '{"query": "query { books 
 # => JSONデータが返る
 # {"data":{"books":[{"title":"Harry Potter and the Chamber of Secrets"},{"title":"Jurassic Park"}]}}
 ```
+
+***
+
+## Nuxt.js クライアントから Apollo Server GraphQL への接続
+
+### Setup
+```bash
+# install nuxt modules
+# $ yarn add nuxt nuxt-purgecss postcss-import postcss-nested@^4.2.3 tailwindcss @nuxtjs/apollo apollo-cache-inmemory
+$ yarn
+
+# start servers
+## start:frontend http://localhost:3000
+## start:backend http://localhost:4000
+$ yarn start
+```
+
+### pages/index.vue
+```vue
+<template>
+  <section class="container">
+    <table class="table-auto">
+      <thead>
+        <tr class="text-center bg-gray-400">
+          <th class="border-2 border-gray-600 px-4 py-2">Title</th>
+          <th class="border-2 border-gray-600 px-4 py-2">Author</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(book, index) in books" :key="index">
+          <td class="border-2 border-gray-400 px-4 py-2">{{book.title}}</td>
+          <td class="border-2 border-gray-400 px-4 py-2">{{book.author}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</template>
+
+<script>
+import gql from 'graphql-tag'
+
+export default {
+  data: () => ({
+    books: [] // replace by apollo/graphql
+  }),
+  /**
+   * @nuxtjs/apollo
+   * - Get books query
+   */
+  apollo: {
+    books: {
+      query: gql`
+        query {
+          books {
+            title, author
+          }
+        }
+      `
+    }
+  }
+}
+</script>
+```
+
+![nuxt_apollo.png](./img/nuxt_apollo.png)
