@@ -28,7 +28,7 @@ module.exports = gql`
 # Query: どのようなデータがフェッチできるかを定義
 type Query {
   # launches: 今後のロケット発射予定を全てフェッチ
-  ## 後ろに ! を付けると、NULLを不許可にできる
+  ## 後ろに ! を付けると、NULLを不許可にできる（ただし NULL と空配列は別のもの）
   launches: [Launch]!
 
   # launch: 特定の発射予定を ID で指定してフェッチ
