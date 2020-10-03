@@ -117,10 +117,24 @@ module.exports = (name, mode = 'open') => {
 
     /**
      * insertメソッド
-     * @param {object|object[]} docs 
+     * @param {object|object[]} docs
+     * @param {boolean} withId RDBS のように incremental id を付与するか
      * @return {object|object[]} inserted
      */
-    async insert(docs) {
+    async insert(docs, withId = true) {
+      if (withId) {
+        // ドキュメント中最大のIDを取得
+        const documents = await db.find({}).sort({id: -1}).limit(1).exec()
+        let maxid = documents.length === 1? (documents[0].id || 0): 0
+        if (Array.isArray(docs)) {
+          const results = []
+          for (const doc of docs) {
+            results.push(await db.insert({...doc, id: ++maxid}))
+          }
+          return results
+        }
+        return await db.insert({...docs, id: ++maxid})
+      }
       return await db.insert(docs)
     },
 
