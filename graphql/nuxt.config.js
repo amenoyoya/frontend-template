@@ -35,9 +35,6 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      // css files for client mode plugins
-      { rel: 'stylesheet', href: '/css/vuejs-dialog.min.css' },
-      { rel: 'stylesheet', href: '/css/vue-sidebar-menu.css' },
     ]
   },
   /*
